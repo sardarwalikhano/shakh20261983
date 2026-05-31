@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شاخ دیلیڤەری - ShakhDelivery</title>
+    <!-- Tailwind CSS with CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Kurdish & English -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Arabic', 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+        .shakh-gradient-text {
+            background: linear-gradient(135deg, #ff4d4d 0%, #ff8e53 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .shakh-gradient-bg {
+            background: linear-gradient(135deg, #ff4d4d 0%, #ff8e53 100%);
+        }
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(90deg, #ff4d4d, #ff8e53);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+        .glow-border:hover::after {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-gray-800 bg-[#0d1321] py-4 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto flex flex-row-reverse justify-between items-center">
+            <!-- Brand -->
+            <div class="flex items-center gap-3 flex-row-reverse">
+                <div class="h-10 w-10 rounded-xl shakh-gradient-bg flex items-center justify-center font-bold text-white text-lg shadow-lg shadow-red-500/20">
+                    🏔️
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold text-white leading-tight">شاخ دیلیڤەری</h1>
+                    <p class="text-xs text-gray-400">ShakhDelivery App</p>
+                </div>
+            </div>
+
+            <!-- Language Indicator -->
+            <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-800 text-gray-300 border border-gray-700">کوردی & English</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-6 py-12 flex-grow w-full">
+        
+        <!-- Hero Section -->
+        <section class="text-center mb-16">
+            <span class="inline-block px-4 py-1.5 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20 mb-4 animate-pulse">
+                🚀 ماڵپەڕی فەرمی ئەپڵیکەیشنەکە بەستراوەتەوە
+            </span>
+            <h2 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+                ناونیشانی دۆمەینەکە بە <span class="shakh-gradient-text font-black">سەرکەوتوویی بەسترایەوە!</span>
+            </h2>
+            <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-8 font-light leading-relaxed">
+                بەخێربێیت بۆ ماڵپەڕی فەرمی <strong>شاخ دیلیڤەری (ShakhDelivery)</strong>. دۆمەینەکەت بە سەرکەوتوویی لەگەڵ GitHub و Vercel بەستراوە. لەبەرئەوەی ئەم پڕۆژەیە ئەپڵیکەیشنێکی مۆبایلە (سیستەمی Android)، لەم ماڵپەڕە دەتوانیت ئەپەکە دابەزێنیت و داتابەیسی سوپابەیسەکەت ڕێکبخەیت!
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="https://ais-dev-jp4kthis4dvmnbdbj3na4d-575873970462.europe-west2.run.app" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl shakh-gradient-bg font-bold text-white shadow-lg shadow-red-500/30 hover:shadow-red-500/40 transition duration-300 transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2">
+                    📥 دابەزاندنی یەکەمینی ئەپی لایڤ (Android APK)
+                </a>
+                <a href="#supabase-instructions" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gray-800 hover:bg-gray-700 font-semibold text-gray-300 border border-gray-700 hover:text-white transition duration-300 text-center">
+                    ⚙️ ڕێبەری سوپابەیس (SQL Database Setup)
+                </a>
+            </div>
+        </section>
+
+        <!-- Dynamic Information Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            
+            <!-- Kurdish Guide Card -->
+            <div class="bg-[#111827] border border-gray-800 rounded-2xl p-8 glow-border">
+                <div class="flex items-center gap-3 mb-6 flex-row-reverse text-right">
+                    <span class="text-3xl">📱</span>
+                    <h3 class="text-2xl font-bold text-white">لەبارەی ئەندرۆید ئەپەکەوە</h3>
+                </div>
+                <p class="text-gray-300 text-right font-light leading-relaxed mb-6">
+                    ئەم پڕۆژەیە بە وەشانی مۆدێرنی <strong>Jetpack Compose</strong> و زمانەکەی بە <strong>Java/Kotlin</strong> کراوە. ئەپێکی تەواو سەربەخۆیە بۆ کڕینی خواردن لە چێشتخانەکانی هەولێر بە سیستەمی دیلیڤەری خێرا. تایبەتمەندییە ناوازەکانی:
+                </p>
+                <ul class="space-y-3 text-right text-gray-400 mb-6">
+                    <li class="flex flex-row-reverse items-center gap-2">
+                        <span class="text-red-500">✔</span> <span>زمانەکانی کوردی (Kurdish) و ئینگلیزی (English)</span>
+                    </li>
+                    <li class="flex flex-row-reverse items-center gap-2">
+                        <span class="text-red-500">✔</span> <span>دزین و وێنەگرتنی جی پی ئێسی مۆبایلەکە بە شێوەی لایڤ</span>
+                    </li>
+                    <li class="flex flex-row-reverse items-center gap-2">
+                        <span class="text-red-500">✔</span> <span>پەیوەستبوون بە داتابێسی لایڤی سوپابەیس (Supabase API)</span>
+                    </li>
+                    <li class="flex flex-row-reverse items-center gap-2">
+                        <span class="text-red-500">✔</span> <span>دواندنی ستۆری کاتی (Stories UI) لە چێشتخانەکانەوە</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- English Guide Card -->
+            <div class="bg-[#111827] border border-gray-800 rounded-2xl p-8 text-left glow-border" dir="ltr">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-3xl">🚀</span>
+                    <h3 class="text-2xl font-bold text-white">About the Android App</h3>
+                </div>
+                <p class="text-gray-300 font-light leading-relaxed mb-6">
+                    ShakhDelivery is engineered purely with modern **Jetpack Compose** and **Kotlin** on the Android framework. It is integrated natively with Supabase endpoints that sync live menu items, stories and delivery trackers.
+                </p>
+                <div class="bg-[#0b0f19] p-4 rounded-xl border border-gray-800 text-sm font-mono text-gray-400">
+                    <div class="flex justify-between mb-1">
+                        <span>Device SDK Support:</span>
+                        <span class="text-red-400">Android API 24 - 34+</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>UI Library:</span>
+                        <span class="text-red-400">Material Design 3 (M3)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SQL Setup Instructions Panel -->
+        <section id="supabase-instructions" class="bg-[#111827] border border-gray-800 rounded-2xl p-8 mb-16">
+            <h3 class="text-2xl font-bold text-white mb-4 text-center md:text-right">
+                ⚙️ هەنگاوەکانی تێکەڵکردنی داتابێس (Supabase Live Setup)
+            </h3>
+            <p class="text-gray-400 font-light leading-relaxed mb-8 text-center md:text-right">
+                بۆ پەیوەستکردنی داتابێسەکە، تکایە بچۆ ناو پۆرتاڵەکەی <strong>Supabase (supabase.com)</strong> و کۆدەکەی خوارەوە لەبەشەکە کۆپی بکە و پاشان ڕەن بکە لەبەشی <strong>SQL Editor</strong> بۆ ئەوەی خشتەکانی چێشتخانە، مینۆ، مێز، ئۆردەر و ستۆرییەکان دروست ببن:
+            </p>
+
+            <div class="relative bg-[#0b0f19] rounded-xl border border-gray-800 overflow-hidden text-left" dir="ltr">
+                <div class="flex justify-between items-center bg-gray-900 px-4 py-2 border-b border-gray-800">
+                    <span class="text-xs text-gray-500 font-mono">SUPABASE_SEED.sql</span>
+                    <button onclick="copySqlCode()" class="text-xs px-3 py-1 rounded bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold transition">
+                        کۆپی بکە / Copy SQL
+                    </button>
+                </div>
+                <!-- SQL Code Box -->
+                <textarea id="sqlCodeContainer" readonly class="w-full h-80 p-4 font-mono text-xs text-green-400 bg-transparent resize-none focus:outline-none leading-relaxed">
+-- 1. Create RESTAURANTS table
+create table if not exists restaurants (
+    id text primary key,
+    name text not null,
+    name_ku text,
+    cuisine text not null,
+    cuisine_ku text,
+    image_url text not null,
+    rating double precision default 4.5,
+    delivery_time text default '25-35 min',
+    delivery_fee double precision default 1000,
+    featured boolean default false
+);
+
+-- 2. Create FOOD_ITEMS table
+create table if not exists food_items (
+    id text primary key,
+    restaurant_id text references restaurants(id) on delete cascade,
+    name text not null,
+    name_ku text,
+    description text,
+    description_ku text,
+    price double precision not null,
+    image_url text not null,
+    category text not null,
+    category_ku text
+);
+
+-- 3. Create ORDERS table
+create table if not exists orders (
+    id text primary key,
+    customer_name text not null,
+    phone text not null,
+    address text not null,
+    total_price double precision not null,
+    status text default 'Pending',
+    items_summary text,
+    created_at timestamp with time zone default timezone('utc'::text, now())
+);
+
+-- 4. Create STORIES table
+create table if not exists stories (
+    id text primary key,
+    restaurant_id text not null,
+    restaurant_name text not null,
+    restaurant_name_ku text,
+    food_name text not null,
+    food_name_ku text,
+    description text,
+    description_ku text,
+    price double precision not null,
+    image_url text not null,
+    created_at timestamp with time zone default timezone('utc'::text, now())
+);
+
+-- Enable Row Level Security (RLS)
+alter table restaurants enable row level security;
+alter table food_items enable row level security;
+alter table orders enable row level security;
+alter table stories enable row level security;
+
+-- Add Public Access Policies
+create policy "Allow public read restaurants" on restaurants for select using (true);
+create policy "Allow public read food items" on food_items for select using (true);
+create policy "Allow public insert / select orders" on orders for all using (true);
+create policy "Allow public read stories" on stories for select using (true);
+create policy "Allow public insert stories" on stories for all using (true);
+
+-- Seed Initial Restaurants Data
+insert into restaurants (id, name, name_ku, cuisine, cuisine_ku, image_url, rating, delivery_time, delivery_fee, featured)
+values 
+('res-1', 'Kebab Restaurant Hawler', 'کەبابستانی هەولێر', 'Traditional Kurdish', 'خواردنی کوردیی ڕەسەن', 'https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=80', 4.9, '15-25 min', 1500, true),
+('res-2', 'Hawand Fast Food', 'فاست فوودی هەوەند', 'Burgers & Pizza', 'بەرگر و پیتزا', 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=80', 4.7, '20-30 min', 1000, true),
+('res-3', 'Mount Shakh Sweets & Pastry', 'شیرینی لوتکەی شاخ', 'Desserts & Baklava', 'شیرینی و بەقلاوە', 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80', 4.8, '25-35 min', 2000, false)
+on conflict (id) do nothing;
+                </textarea>
+            </div>
+            
+            <!-- Toast notification feedback area -->
+            <p id="copyMessage" class="text-xs text-center text-green-400 mt-2 font-semibold transition opacity-0">✔ کۆدەکە کۆپی کرا! ئێستا دەتوانیت لە سوپابەیس ڕەنی بکەیت.</p>
+        </section>
+
+        <!-- Final Sync Instructions Card -->
+        <section class="bg-gray-900 border border-red-500/10 rounded-2xl p-8 max-w-4xl mx-auto text-right">
+            <h4 class="text-xl font-bold text-white mb-4">🔑 چۆن کلیلەکان لە ئەپەکەم تێکەڵ بکەم؟</h4>
+            <ol class="space-y-4 text-gray-300 text-sm font-light leading-relaxed">
+                <li class="flex flex-row-reverse gap-3">
+                    <span class="flex items-center justify-center font-bold h-6 w-6 rounded-full bg-red-500 text-white text-xs mt-0.5">1</span>
+                    <span>ئەندرۆید ئەپەکە لە ناو مۆبایلەکەت بکەرەوە.</span>
+                </li>
+                <li class="flex flex-row-reverse gap-3">
+                    <span class="flex items-center justify-center font-bold h-6 w-6 rounded-full bg-red-500 text-white text-xs mt-0.5">2</span>
+                    <span>لە سەرەوە لای ڕاست کرتە لەسەر نیشانەی ڕێکخستنەکان (Settings Gear ⚙️) بکە.</span>
+                </li>
+                <li class="flex flex-row-reverse gap-3">
+                    <span class="flex items-center justify-center font-bold h-6 w-6 rounded-full bg-red-500 text-white text-xs mt-0.5">3</span>
+                    <span>لەوێ ناونیشانی داتابێسەکەت (Supabase URL) و کلیلەکەت (Supabase Anon Key) بنووسە.</span>
+                </li>
+                <li class="flex flex-row-reverse gap-3">
+                    <span class="flex items-center justify-center font-bold h-6 w-6 rounded-full bg-red-500 text-white text-xs mt-0.5">4</span>
+                    <span>کرتە لەسەر پاشکەوتکردن بکه داتابێسەکە دەبێتە لایڤ بۆ هەموو مۆبایلەکان!</span>
+                </li>
+            </ol>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-[#0c101d] py-8 px-6 text-center text-gray-500 text-sm">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row-reverse justify-between items-center gap-4">
+            <p>© 2026 شاخ دیلیڤەری - ShakhDelivery. سەرجەم مافەکان پارێزراون.</p>
+            <div class="flex gap-4">
+                <a href="https://github.com/sardarxano59" target="_blank" class="hover:text-white transition">GitHub Profile</a>
+                <span class="text-gray-700">•</span>
+                <a href="#" class="hover:text-white transition">ڕێبەری ڕێکخستنەکە</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Copy Code Handler JS -->
+    <script>
+        function copySqlCode() {
+            var textarea = document.getElementById("sqlCodeContainer");
+            textarea.select();
+            textarea.setSelectionRange(0, 99999); /* For mobile devices */
+            
+            // Execute Copy
+            navigator.clipboard.writeText(textarea.value);
+            
+            // Show toast message
+            var copyMsg = document.getElementById("copyMessage");
+            copyMsg.classList.remove("opacity-0");
+            copyMsg.classList.add("opacity-100");
+            
+            setTimeout(function() {
+                copyMsg.classList.remove("opacity-100");
+                copyMsg.classList.add("opacity-0");
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

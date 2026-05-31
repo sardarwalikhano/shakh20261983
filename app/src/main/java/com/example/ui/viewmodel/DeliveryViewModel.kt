@@ -159,8 +159,10 @@ class DeliveryViewModel(private val repository: DeliveryRepository) : ViewModel(
             _currentGeocodingStep.value = if (_isKurdish.value) "ناونیشانی ڕاستەقینە لە دۆمەینەوە وەرگیرا! ✔" else "Real address captured from domain successfully! ✔"
             delay(1000)
 
-            _isGeocoding.value = false
-            onAddressResolved(resolvedAddress)
+            kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Main) {
+                _isGeocoding.value = false
+                onAddressResolved(resolvedAddress)
+            }
         }
     }
 
