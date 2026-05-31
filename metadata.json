@@ -1,0 +1,6 @@
+{
+  "name": "Shakh Delivery",
+  "description": "شاخ دیلیڤەری - A high-fidelity food delivery application similar to Talabat, integrated with Supabase.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
